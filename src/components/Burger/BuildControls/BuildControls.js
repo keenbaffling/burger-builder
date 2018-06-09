@@ -1,6 +1,6 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
-import BuildControlsWrapper from './buildControls.style';
+import BuildControlsWrapper, { OrderButton } from './buildControls.style';
 import BuildControl from './BuildControl/BuildControl';
 
 const controls = [
@@ -12,6 +12,9 @@ const controls = [
 
 const buildControls = props => (
   <BuildControlsWrapper>
+    <p>
+      Current Price: <strong>{props.price.toFixed(2)}</strong>
+    </p>
     {controls.map(ctrl => (
       <BuildControl
         key={ctrl.label}
@@ -21,6 +24,9 @@ const buildControls = props => (
         disabled={props.disabled[ctrl.type]}
       />
     ))}
+    <OrderButton disabled={!props.purchasable} onClick={props.ordered}>
+      Order Now
+    </OrderButton>
   </BuildControlsWrapper>
 );
 

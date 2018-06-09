@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
-export const MainContent = styled.main`
-  margin-top: 16px;
+const LayoutWrapper = styled.main`
+  margin-top: 72px;
 `;
+
+export default LayoutWrapper;
